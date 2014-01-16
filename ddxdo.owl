@@ -1,0 +1,260 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://biordf.org/alejandro/ddxdo/ddxdo.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="http://biordf.org/alejandro/ddxdo/ddxdo.owl">
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Import>http://www.nanopub.org/nschema</Import>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/creator"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Model created by Alejandro Rodríguez González, extended by Mikel Egaña Aranguren, both from http://wilkinsonlab.info.</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="#ClinicalFinding"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DiagnosticTest"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Disease"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Patient"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sign"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#diagnosis"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#has_clinical_finding"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#has_diagnostic_test"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#has_disorder"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#has_input_data"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#has_laboratory_test"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#has_sign"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#manifest_clinical_finding"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/nanopub_a"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/sign_b"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#DiagnosticTest"/>
+        <Class IRI="#ClinicalFinding"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sign"/>
+        <Class IRI="#ClinicalFinding"/>
+    </SubClassOf>
+    <NegativeObjectPropertyAssertion>
+        <ObjectProperty IRI="#has_clinical_finding"/>
+        <NamedIndividual IRI="/nanopub_a"/>
+        <NamedIndividual IRI="/sign_b"/>
+    </NegativeObjectPropertyAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#has_clinical_finding"/>
+        <ObjectProperty IRI="#manifest_clinical_finding"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#has_diagnostic_test"/>
+        <ObjectProperty IRI="#has_clinical_finding"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#has_disorder"/>
+        <ObjectProperty IRI="#has_clinical_finding"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#has_laboratory_test"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#has_sign"/>
+        <ObjectProperty IRI="#has_clinical_finding"/>
+    </SubObjectPropertyOf>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#diagnosis"/>
+        <Class IRI="http://www.nanopub.org/nschema#Nanopublication"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#has_clinical_finding"/>
+        <Class IRI="#Disease"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#has_clinical_finding"/>
+        <Class IRI="#Patient"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#has_clinical_finding"/>
+        <Class IRI="http://www.nanopub.org/nschema#Nanopublication"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#has_diagnostic_test"/>
+        <Class IRI="http://www.nanopub.org/nschema#Nanopublication"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#has_disorder"/>
+        <Class IRI="http://www.nanopub.org/nschema#Nanopublication"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#has_input_data"/>
+        <Class IRI="http://www.nanopub.org/nschema#Nanopublication"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#has_laboratory_test"/>
+        <Class IRI="http://www.nanopub.org/nschema#Nanopublication"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#has_sign"/>
+        <Class IRI="http://www.nanopub.org/nschema#Nanopublication"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#manifest_clinical_finding"/>
+        <Class IRI="#Patient"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#diagnosis"/>
+        <Class IRI="#Disease"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#has_clinical_finding"/>
+        <Class IRI="http://www.nanopub.org/nschema#Nanopublication"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#has_diagnostic_test"/>
+        <Class IRI="#DiagnosticTest"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#has_disorder"/>
+        <Class IRI="#Disease"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#has_input_data"/>
+        <Class IRI="http://www.nanopub.org/nschema#Nanopublication"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#has_sign"/>
+        <Class IRI="#Sign"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#manifest_clinical_finding"/>
+        <Class IRI="#ClinicalFinding"/>
+    </ObjectPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#diagnosis</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Defines a relation between the nanopub that asserts the diagnosis and the diagnosed disease </Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#has_clinical_finding</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Defines a relation between the disease (as an SNOMED instance) and the nanopub that holds all the data of the clinical finding.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#has_diagnostic_test</IRI>
+        <Literal datatypeIRI="&rdfs;Literal">Defines a relation between the nanopub and the diagnostic test</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#has_disorder</IRI>
+        <Literal datatypeIRI="&rdfs;Literal">Defines a relation between the nanopub and the disease</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#has_input_data</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Defines a relation between the nanopub of a concrete diagnosis and the nanopub of the patient&apos;s input data</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#has_laboratory_test</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Defines a relation between the nanopub and the laboratory test</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#has_sign</IRI>
+        <Literal datatypeIRI="&rdfs;Literal">Defines a relation between the nanopub and the sign.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#manifest_clinical_finding</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Defines a relation between the nanopub that contains the input data and the nanopub of the finding</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.nanopub.org/nschema#Assertion</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A nanopublication should be associated with an assertion, publicationInfo and provenance, all of which are graphs. In order to maintain flexibility we do not express this requirement in OWL</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.nanopub.org/nschema#Provenance</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A nanopublication should be associated with an assertion, publicationInfo and provenance, all of which are graphs. In order to maintain flexibility we do not express this requirement in OWL</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.nanopub.org/nschema#PublicationInfo</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A nanopublication should be associated with an assertion, publicationInfo and provenance, all of which are graphs. In order to maintain flexibility we do not express this requirement in OWL</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.nanopub.org/nschema#hasAssertion</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A nanopublication should be associated with an assertion, publicationInfo and provenance, all of which are graphs. In order to maintain flexibility we do not express this requirement in OWL</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.nanopub.org/nschema#hasProvenance</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A nanopublication should be associated with an assertion, publicationInfo and provenance, all of which are graphs. In order to maintain flexibility we do not express this requirement in OWL</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.nanopub.org/nschema#hasPublicationInfo</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A nanopublication should be associated with an assertion, publicationInfo and provenance, all of which are graphs. In order to maintain flexibility we do not express this requirement in OWL</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>owl:topObjectProperty</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdfs;Literal">Defines a relation between the patient and the nanopub which sotres the information about the clinical findings manifested.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.w3.org/2004/03/trix/rdfg-1/Graph</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">An RDF graph (with intensional semantics)</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+
