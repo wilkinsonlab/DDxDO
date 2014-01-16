@@ -4,7 +4,7 @@ DDxDO
 About
 -----
 
-Nanopubs for clinical decision support systems
+Nanopubs for clinical decision support systems (Ontology)
 
 Funding
 -------
