@@ -1,258 +1,451 @@
 <?xml version="1.0"?>
 
 
-<!DOCTYPE Ontology [
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
-    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
 ]>
 
 
-<Ontology xmlns="http://www.w3.org/2002/07/owl#"
-     xml:base="http://biordf.org/alejandro/ddxdo/ddxdo.owl"
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     ontologyIRI="http://biordf.org/alejandro/ddxdo/ddxdo.owl">
-    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
-    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
-    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
-    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
-    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
-    <Import>http://www.nanopub.org/nschema</Import>
-    <Annotation>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/creator"/>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Model created by Alejandro Rodríguez González, extended by Mikel Egaña Aranguren, both from http://wilkinsonlab.info.</Literal>
-    </Annotation>
-    <Declaration>
-        <Class IRI="#ClinicalFinding"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#DiagnosticTest"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Disease"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Patient"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Sign"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#diagnosis"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#has_clinical_finding"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#has_diagnostic_test"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#has_disorder"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#has_input_data"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#has_laboratory_test"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#has_sign"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#manifest_clinical_finding"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="/nanopub_a"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="/sign_b"/>
-    </Declaration>
-    <SubClassOf>
-        <Class IRI="#DiagnosticTest"/>
-        <Class IRI="#ClinicalFinding"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Sign"/>
-        <Class IRI="#ClinicalFinding"/>
-    </SubClassOf>
-    <NegativeObjectPropertyAssertion>
-        <ObjectProperty IRI="#has_clinical_finding"/>
-        <NamedIndividual IRI="/nanopub_a"/>
-        <NamedIndividual IRI="/sign_b"/>
-    </NegativeObjectPropertyAssertion>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#has_clinical_finding"/>
-        <ObjectProperty IRI="#manifest_clinical_finding"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#has_diagnostic_test"/>
-        <ObjectProperty IRI="#has_clinical_finding"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#has_disorder"/>
-        <ObjectProperty IRI="#has_clinical_finding"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#has_laboratory_test"/>
-        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#has_sign"/>
-        <ObjectProperty IRI="#has_clinical_finding"/>
-    </SubObjectPropertyOf>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#diagnosis"/>
-        <Class IRI="http://www.nanopub.org/nschema#Nanopublication"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#has_clinical_finding"/>
-        <Class IRI="#Disease"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#has_clinical_finding"/>
-        <Class IRI="#Patient"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#has_clinical_finding"/>
-        <Class IRI="http://www.nanopub.org/nschema#Nanopublication"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#has_diagnostic_test"/>
-        <Class IRI="http://www.nanopub.org/nschema#Nanopublication"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#has_disorder"/>
-        <Class IRI="http://www.nanopub.org/nschema#Nanopublication"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#has_input_data"/>
-        <Class IRI="http://www.nanopub.org/nschema#Nanopublication"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#has_laboratory_test"/>
-        <Class IRI="http://www.nanopub.org/nschema#Nanopublication"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#has_sign"/>
-        <Class IRI="http://www.nanopub.org/nschema#Nanopublication"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#manifest_clinical_finding"/>
-        <Class IRI="#Patient"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#diagnosis"/>
-        <Class IRI="#Disease"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#has_clinical_finding"/>
-        <Class IRI="http://www.nanopub.org/nschema#Nanopublication"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#has_diagnostic_test"/>
-        <Class IRI="#DiagnosticTest"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#has_disorder"/>
-        <Class IRI="#Disease"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#has_input_data"/>
-        <Class IRI="http://www.nanopub.org/nschema#Nanopublication"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#has_sign"/>
-        <Class IRI="#Sign"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#manifest_clinical_finding"/>
-        <Class IRI="#ClinicalFinding"/>
-    </ObjectPropertyRange>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#diagnosis</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Defines a relation between the nanopub that asserts the diagnosis and the diagnosed disease </Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#has_clinical_finding</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Defines a relation between the disease (as an SNOMED instance) and the nanopub that holds all the data of the clinical finding.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#has_diagnostic_test</IRI>
-        <Literal datatypeIRI="&rdfs;Literal">Defines a relation between the nanopub and the diagnostic test</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#has_disorder</IRI>
-        <Literal datatypeIRI="&rdfs;Literal">Defines a relation between the nanopub and the disease</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#has_input_data</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Defines a relation between the nanopub of a concrete diagnosis and the nanopub of the patient&apos;s input data</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#has_laboratory_test</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Defines a relation between the nanopub and the laboratory test</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#has_sign</IRI>
-        <Literal datatypeIRI="&rdfs;Literal">Defines a relation between the nanopub and the sign.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#manifest_clinical_finding</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Defines a relation between the nanopub that contains the input data and the nanopub of the finding</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://www.nanopub.org/nschema#Assertion</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A nanopublication should be associated with an assertion, publicationInfo and provenance, all of which are graphs. In order to maintain flexibility we do not express this requirement in OWL</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://www.nanopub.org/nschema#Provenance</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A nanopublication should be associated with an assertion, publicationInfo and provenance, all of which are graphs. In order to maintain flexibility we do not express this requirement in OWL</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://www.nanopub.org/nschema#PublicationInfo</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A nanopublication should be associated with an assertion, publicationInfo and provenance, all of which are graphs. In order to maintain flexibility we do not express this requirement in OWL</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://www.nanopub.org/nschema#hasAssertion</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A nanopublication should be associated with an assertion, publicationInfo and provenance, all of which are graphs. In order to maintain flexibility we do not express this requirement in OWL</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://www.nanopub.org/nschema#hasProvenance</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A nanopublication should be associated with an assertion, publicationInfo and provenance, all of which are graphs. In order to maintain flexibility we do not express this requirement in OWL</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://www.nanopub.org/nschema#hasPublicationInfo</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A nanopublication should be associated with an assertion, publicationInfo and provenance, all of which are graphs. In order to maintain flexibility we do not express this requirement in OWL</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>owl:topObjectProperty</AbbreviatedIRI>
-        <Literal datatypeIRI="&rdfs;Literal">Defines a relation between the patient and the nanopub which sotres the information about the clinical findings manifested.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://www.w3.org/2004/03/trix/rdfg-1/Graph</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">An RDF graph (with intensional semantics)</Literal>
-    </AnnotationAssertion>
-</Ontology>
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <Ontology rdf:about="http://biordf.org/ontology/ddxdo.owl">
+        <dc:creator xml:lang="en">Model created by Alejandro Rodríguez González, extended by Mikel Egaña Aranguren, both from http://wilkinsonlab.info.</dc:creator>
+        <imports rdf:resource="http://semanticscience.org/ontology/sio.owl"/>
+        <imports rdf:resource="http://www.nanopub.org/nschema"/>
+    </Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://biordf.org/ontology/ddxdo.owl#diagnosis -->
+
+    <ObjectProperty rdf:about="http://biordf.org/ontology/ddxdo.owl#diagnosis">
+        <rdfs:comment xml:lang="en">Defines a relation between the nanopub that asserts the diagnosis and the diagnosed disease </rdfs:comment>
+        <rdfs:range rdf:resource="http://biordf.org/ontology/ddxdo.owl#Disease"/>
+        <rdfs:domain rdf:resource="http://biordf.org/ontology/ddxdo.owl#Patient"/>
+        <rdfs:domain rdf:resource="http://www.nanopub.org/nschema#Nanopublication"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://biordf.org/ontology/ddxdo.owl#has_clinical_finding_definition -->
+
+    <ObjectProperty rdf:about="http://biordf.org/ontology/ddxdo.owl#has_clinical_finding_definition">
+        <rdfs:comment xml:lang="en">Defines a relation between the disease (as an SNOMED instance) and the nanopub that holds all the data of the clinical finding.</rdfs:comment>
+        <rdfs:range rdf:resource="http://biordf.org/ontology/ddxdo.owl#ClinicalFinding"/>
+        <rdfs:domain rdf:resource="http://biordf.org/ontology/ddxdo.owl#Patient"/>
+        <rdfs:subPropertyOf rdf:resource="http://biordf.org/ontology/ddxdo.owl#manifest_clinical_finding"/>
+        <rdfs:domain rdf:resource="http://www.nanopub.org/nschema#Nanopublication"/>
+        <rdfs:range rdf:resource="http://www.nanopub.org/nschema#Nanopublication"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://biordf.org/ontology/ddxdo.owl#has_code -->
+
+    <ObjectProperty rdf:about="http://biordf.org/ontology/ddxdo.owl#has_code">
+        <rdfs:domain rdf:resource="http://biordf.org/ontology/ddxdo.owl#ClinicalFinding"/>
+        <rdfs:domain rdf:resource="http://biordf.org/ontology/ddxdo.owl#Disease"/>
+        <rdfs:range>
+            <Restriction>
+                <onProperty rdf:resource="http://biordf.org/ontology/ddxdo.owl#has_code"/>
+                <someValuesFrom>
+                    <Class>
+                        <intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://semanticscience.org/resource/SIO_000326"/>
+                            <Restriction>
+                                <onProperty rdf:resource="http://semanticscience.org/resource/SIO_000300"/>
+                                <someValuesFrom rdf:resource="&xsd;string"/>
+                            </Restriction>
+                            <Restriction>
+                                <onProperty rdf:resource="http://biordf.org/ontology/ddxdo.owl#code_type"/>
+                                <hasValue>SNOMED Code</hasValue>
+                            </Restriction>
+                        </intersectionOf>
+                    </Class>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:range>
+    </ObjectProperty>
+    
+
+
+    <!-- http://biordf.org/ontology/ddxdo.owl#has_diagnostic_test -->
+
+    <ObjectProperty rdf:about="http://biordf.org/ontology/ddxdo.owl#has_diagnostic_test">
+        <rdfs:comment rdf:datatype="&rdfs;Literal">Defines a relation between the nanopub and the diagnostic test</rdfs:comment>
+        <rdfs:range rdf:resource="http://biordf.org/ontology/ddxdo.owl#DiagnosticTest"/>
+        <rdfs:subPropertyOf rdf:resource="http://biordf.org/ontology/ddxdo.owl#has_clinical_finding_definition"/>
+        <rdfs:domain rdf:resource="http://www.nanopub.org/nschema#Nanopublication"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://biordf.org/ontology/ddxdo.owl#has_disorder -->
+
+    <ObjectProperty rdf:about="http://biordf.org/ontology/ddxdo.owl#has_disorder">
+        <rdfs:comment rdf:datatype="&rdfs;Literal">Defines a relation between the nanopub and the disease</rdfs:comment>
+        <rdfs:range rdf:resource="http://biordf.org/ontology/ddxdo.owl#Disease"/>
+        <rdfs:subPropertyOf rdf:resource="http://biordf.org/ontology/ddxdo.owl#has_clinical_finding_definition"/>
+        <rdfs:domain rdf:resource="http://www.nanopub.org/nschema#Nanopublication"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://biordf.org/ontology/ddxdo.owl#has_input_data -->
+
+    <ObjectProperty rdf:about="http://biordf.org/ontology/ddxdo.owl#has_input_data">
+        <rdfs:comment xml:lang="en">Defines a relation between the nanopub of a concrete diagnosis and the nanopub of the patient&apos;s input data</rdfs:comment>
+        <rdfs:domain rdf:resource="http://biordf.org/ontology/ddxdo.owl#Patient"/>
+        <rdfs:range rdf:resource="http://biordf.org/ontology/ddxdo.owl#PatientData"/>
+        <rdfs:domain rdf:resource="http://www.nanopub.org/nschema#Nanopublication"/>
+        <rdfs:range rdf:resource="http://www.nanopub.org/nschema#Nanopublication"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://biordf.org/ontology/ddxdo.owl#has_sign -->
+
+    <ObjectProperty rdf:about="http://biordf.org/ontology/ddxdo.owl#has_sign">
+        <rdfs:comment rdf:datatype="&rdfs;Literal">Defines a relation between the nanopub and the sign.</rdfs:comment>
+        <rdfs:range rdf:resource="http://biordf.org/ontology/ddxdo.owl#Sign"/>
+        <rdfs:subPropertyOf rdf:resource="http://biordf.org/ontology/ddxdo.owl#has_clinical_finding_definition"/>
+        <rdfs:domain rdf:resource="http://www.nanopub.org/nschema#Nanopublication"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://biordf.org/ontology/ddxdo.owl#isDataAssociatedToPatient -->
+
+    <ObjectProperty rdf:about="http://biordf.org/ontology/ddxdo.owl#isDataAssociatedToPatient">
+        <rdfs:range rdf:resource="http://biordf.org/ontology/ddxdo.owl#Patient"/>
+        <rdfs:domain rdf:resource="http://biordf.org/ontology/ddxdo.owl#PatientData"/>
+        <inverseOf rdf:resource="http://biordf.org/ontology/ddxdo.owl#has_input_data"/>
+        <rdfs:range rdf:resource="http://www.nanopub.org/nschema#Nanopublication"/>
+        <rdfs:domain rdf:resource="http://www.nanopub.org/nschema#Nanopublication"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://biordf.org/ontology/ddxdo.owl#manifest_clinical_finding -->
+
+    <ObjectProperty rdf:about="http://biordf.org/ontology/ddxdo.owl#manifest_clinical_finding">
+        <rdfs:comment xml:lang="en">Defines a relation between the nanopub that contains the input data and the nanopub of the finding</rdfs:comment>
+        <rdfs:range rdf:resource="http://biordf.org/ontology/ddxdo.owl#ClinicalFinding"/>
+        <rdfs:domain rdf:resource="http://biordf.org/ontology/ddxdo.owl#Patient"/>
+    </ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://biordf.org/ontology/ddxdo.owl#clinical_finding_type -->
+
+    <DatatypeProperty rdf:about="http://biordf.org/ontology/ddxdo.owl#clinical_finding_type">
+        <rdfs:range>
+            <rdfs:Datatype>
+                <oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first>Diagnostic test</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first>Sign</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://biordf.org/ontology/ddxdo.owl#code_type -->
+
+    <DatatypeProperty rdf:about="http://biordf.org/ontology/ddxdo.owl#code_type">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://biordf.org/ontology/ddxdo.owl#ClinicalFinding -->
+
+    <Class rdf:about="http://biordf.org/ontology/ddxdo.owl#ClinicalFinding">
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="http://biordf.org/ontology/ddxdo.owl#has_code"/>
+                <someValuesFrom>
+                    <Class>
+                        <intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://semanticscience.org/resource/SIO_000326"/>
+                            <Restriction>
+                                <onProperty rdf:resource="http://semanticscience.org/resource/SIO_000300"/>
+                                <someValuesFrom rdf:resource="&xsd;string"/>
+                            </Restriction>
+                            <Restriction>
+                                <onProperty rdf:resource="http://biordf.org/ontology/ddxdo.owl#code_type"/>
+                                <hasValue>SNOMED Code</hasValue>
+                            </Restriction>
+                        </intersectionOf>
+                    </Class>
+                </someValuesFrom>
+            </Restriction>
+        </equivalentClass>
+    </Class>
+    
+
+
+    <!-- http://biordf.org/ontology/ddxdo.owl#ClinicalFindingDefinition -->
+
+    <Class rdf:about="http://biordf.org/ontology/ddxdo.owl#ClinicalFindingDefinition">
+        <rdfs:subClassOf>
+            <Class>
+                <unionOf rdf:parseType="Collection">
+                    <Restriction>
+                        <onProperty rdf:resource="http://biordf.org/ontology/ddxdo.owl#has_clinical_finding_definition"/>
+                        <someValuesFrom rdf:resource="http://biordf.org/ontology/ddxdo.owl#ClinicalFinding"/>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="http://biordf.org/ontology/ddxdo.owl#manifest_clinical_finding"/>
+                        <someValuesFrom rdf:resource="http://biordf.org/ontology/ddxdo.owl#ClinicalFinding"/>
+                    </Restriction>
+                </unionOf>
+            </Class>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- http://biordf.org/ontology/ddxdo.owl#Diagnosis -->
+
+    <Class rdf:about="http://biordf.org/ontology/ddxdo.owl#Diagnosis">
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://biordf.org/ontology/ddxdo.owl#diagnosis"/>
+                <someValuesFrom rdf:resource="http://biordf.org/ontology/ddxdo.owl#Disease"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- http://biordf.org/ontology/ddxdo.owl#DiagnosticTest -->
+
+    <Class rdf:about="http://biordf.org/ontology/ddxdo.owl#DiagnosticTest">
+        <equivalentClass>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://biordf.org/ontology/ddxdo.owl#ClinicalFinding"/>
+                    <Restriction>
+                        <onProperty rdf:resource="http://biordf.org/ontology/ddxdo.owl#clinical_finding_type"/>
+                        <hasValue>Diagnostic test</hasValue>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://biordf.org/ontology/ddxdo.owl#ClinicalFinding"/>
+    </Class>
+    
+
+
+    <!-- http://biordf.org/ontology/ddxdo.owl#Disease -->
+
+    <Class rdf:about="http://biordf.org/ontology/ddxdo.owl#Disease">
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="http://biordf.org/ontology/ddxdo.owl#has_code"/>
+                <someValuesFrom>
+                    <Class>
+                        <intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://semanticscience.org/resource/SIO_000326"/>
+                            <Restriction>
+                                <onProperty rdf:resource="http://semanticscience.org/resource/SIO_000300"/>
+                                <someValuesFrom rdf:resource="&xsd;string"/>
+                            </Restriction>
+                            <Restriction>
+                                <onProperty rdf:resource="http://biordf.org/ontology/ddxdo.owl#code_type"/>
+                                <hasValue>SNOMED Code</hasValue>
+                            </Restriction>
+                        </intersectionOf>
+                    </Class>
+                </someValuesFrom>
+            </Restriction>
+        </equivalentClass>
+    </Class>
+    
+
+
+    <!-- http://biordf.org/ontology/ddxdo.owl#Patient -->
+
+    <Class rdf:about="http://biordf.org/ontology/ddxdo.owl#Patient">
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://biordf.org/ontology/ddxdo.owl#manifest_clinical_finding"/>
+                <someValuesFrom rdf:resource="http://biordf.org/ontology/ddxdo.owl#ClinicalFinding"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- http://biordf.org/ontology/ddxdo.owl#PatientData -->
+
+    <Class rdf:about="http://biordf.org/ontology/ddxdo.owl#PatientData">
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://biordf.org/ontology/ddxdo.owl#isDataAssociatedToPatient"/>
+                <someValuesFrom rdf:resource="http://biordf.org/ontology/ddxdo.owl#Patient"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- http://biordf.org/ontology/ddxdo.owl#Sign -->
+
+    <Class rdf:about="http://biordf.org/ontology/ddxdo.owl#Sign">
+        <equivalentClass>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://biordf.org/ontology/ddxdo.owl#ClinicalFinding"/>
+                    <Restriction>
+                        <onProperty rdf:resource="http://biordf.org/ontology/ddxdo.owl#clinical_finding_type"/>
+                        <hasValue>Sign</hasValue>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://biordf.org/ontology/ddxdo.owl#ClinicalFinding"/>
+    </Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://biordf.org/ontology/ddxdo.owl/nanopub_a -->
+
+    <NamedIndividual rdf:about="http://biordf.org/ontology/ddxdo.owl/nanopub_a"/>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;NegativePropertyAssertion"/>
+        <assertionProperty rdf:resource="http://biordf.org/ontology/ddxdo.owl#has_clinical_finding_definition"/>
+        <sourceIndividual rdf:resource="http://biordf.org/ontology/ddxdo.owl/nanopub_a"/>
+        <targetIndividual rdf:resource="http://biordf.org/ontology/ddxdo.owl/sign_b"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://biordf.org/ontology/ddxdo.owl/sign_b -->
+
+    <NamedIndividual rdf:about="http://biordf.org/ontology/ddxdo.owl/sign_b"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="&owl;topObjectProperty">
+        <rdfs:comment rdf:datatype="&rdfs;Literal">Defines a relation between the patient and the nanopub which sotres the information about the clinical findings manifested.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.nanopub.org/nschema#PublicationInfo">
+        <rdfs:comment xml:lang="en">A nanopublication should be associated with an assertion, publicationInfo and provenance, all of which are graphs. In order to maintain flexibility we do not express this requirement in OWL</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.nanopub.org/nschema#Provenance">
+        <rdfs:comment xml:lang="en">A nanopublication should be associated with an assertion, publicationInfo and provenance, all of which are graphs. In order to maintain flexibility we do not express this requirement in OWL</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.nanopub.org/nschema#Assertion">
+        <rdfs:comment xml:lang="en">A nanopublication should be associated with an assertion, publicationInfo and provenance, all of which are graphs. In order to maintain flexibility we do not express this requirement in OWL</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.nanopub.org/nschema#hasPublicationInfo">
+        <rdfs:comment xml:lang="en">A nanopublication should be associated with an assertion, publicationInfo and provenance, all of which are graphs. In order to maintain flexibility we do not express this requirement in OWL</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2004/03/trix/rdfg-1/Graph">
+        <rdfs:comment xml:lang="en">An RDF graph (with intensional semantics)</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.nanopub.org/nschema#hasProvenance">
+        <rdfs:comment xml:lang="en">A nanopublication should be associated with an assertion, publicationInfo and provenance, all of which are graphs. In order to maintain flexibility we do not express this requirement in OWL</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.nanopub.org/nschema#hasAssertion">
+        <rdfs:comment xml:lang="en">A nanopublication should be associated with an assertion, publicationInfo and provenance, all of which are graphs. In order to maintain flexibility we do not express this requirement in OWL</rdfs:comment>
+    </rdf:Description>
+</rdf:RDF>
 
 
 
